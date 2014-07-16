@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form name="choseForm" method="post" action="controller">
-		<input type="hidden" name="command" value="choise" /> <input
+		<input type="hidden" name="command" value="show" /> <input
 			type="radio" name="parcer" value="DOM" /> DOM <br /> <input
 			type="radio" name="parcer" value="SAX" /> SAX <br /> <input
 			type="radio" name="parcer" value="STAX" /> STAX <br />

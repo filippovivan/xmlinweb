@@ -1,5 +1,7 @@
 package by.bsu.traintask.parcing;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -18,6 +20,7 @@ public class SAXTrainBuilder extends TrainBuilder {
 			.newInstance();;
 	private final SAXParser parcer;
 	private TrainHandler handler;
+
 	public SAXTrainBuilder() throws TechnicalException {
 		super();
 		try {
@@ -31,8 +34,7 @@ public class SAXTrainBuilder extends TrainBuilder {
 
 	@Override
 	public Train createInstance() throws TechnicalException, LogicalException {
-		try (InputStream stream = SAXTrainBuilder.class
-				.getResourceAsStream(getPath())) {
+		try (InputStream stream = new FileInputStream(new File(getPath()))) {
 			parcer.parse(stream, handler);
 			return handler.getTrain();
 		} catch (IOException e) {

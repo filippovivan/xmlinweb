@@ -6,6 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Parced text</title>
 </head>
-<body>${train}
+<body>
+	<table>
+		<c:forEach var=”car” items=”${train.cars}”>
+			<tr>
+				<td>${car}</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

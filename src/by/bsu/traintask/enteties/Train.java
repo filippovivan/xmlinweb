@@ -1,6 +1,7 @@
 package by.bsu.traintask.enteties;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,6 +44,10 @@ public class Train {
 
 	public Iterator<RailroadCar> carsIterator() {
 		return cars.iterator();
+	}
+
+	public List<RailroadCar> getCars() {
+		return Collections.unmodifiableList(cars);
 	}
 
 	@Override
