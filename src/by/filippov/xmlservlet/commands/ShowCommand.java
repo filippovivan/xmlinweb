@@ -2,15 +2,11 @@ package by.filippov.xmlservlet.commands;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
-
 import by.bsu.traintask.enteties.Train;
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;
 import by.bsu.traintask.parcing.TrainBuilder;
 import by.bsu.traintask.parcing.TrainBuilderFactory;
-import by.filippov.xmlservlet.utils.ConfigurationManager;
-import by.filippov.xmlservlet.utils.MessageManager;
 
 public class ShowCommand implements ActionCommand {
 	@Override
@@ -23,11 +19,10 @@ public class ShowCommand implements ActionCommand {
 			builder.setPath("resources/train.xml");
 			Train train = builder.createInstance();
 			request.setAttribute("train", train);
-			return ConfigurationManager.getProperty("path.page.main");
+			return "/jsp/main/main.jsp";
 		} catch (TechnicalException | LogicalException e) {
-			request.setAttribute("errorXMLParcing",
-					MessageManager.getProperty("message.parceerror"));
-			return ConfigurationManager.getProperty("path.page.error");
+			request.setAttribute("errorXMLParcing", "Internal error occured.");
+			return "/jsp/error/error.jsp";
 		}
 	}
 

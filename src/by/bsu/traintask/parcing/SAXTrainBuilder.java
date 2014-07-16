@@ -17,7 +17,7 @@ import by.bsu.traintask.exceptions.TechnicalException;
 
 public class SAXTrainBuilder extends TrainBuilder {
 	private static final SAXParserFactory factory = SAXParserFactory
-			.newInstance();;
+			.newInstance();
 	private final SAXParser parcer;
 	private TrainHandler handler;
 

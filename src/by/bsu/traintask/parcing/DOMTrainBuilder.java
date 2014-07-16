@@ -1,5 +1,7 @@
 package by.bsu.traintask.parcing;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -36,8 +38,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 
 	@Override
 	public Train createInstance() throws TechnicalException, LogicalException {
-		try (InputStream resource = DOMTrainBuilder.class
-				.getResourceAsStream(getPath());) {
+		try (InputStream resource = new FileInputStream(new File(getPath()))) {
 			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
 			Document document = documentBuilder.parse(resource);
 			Train train = new Train();

@@ -1,5 +1,7 @@
 package by.bsu.traintask.parcing;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -32,8 +34,7 @@ public class StAXTrainBuilder extends TrainBuilder {
 	@Override
 	public Train createInstance() throws TechnicalException, LogicalException {
 		Train train = new Train();
-		try (InputStream file = StAXTrainBuilder.class
-				.getResourceAsStream(getPath())) {
+		try (InputStream file = new FileInputStream(new File(getPath()))) {
 			XMLStreamReader reader = inputFactory.createXMLStreamReader(file);
 			while (reader.hasNext()) {
 				int type = reader.next();
@@ -64,8 +65,8 @@ public class StAXTrainBuilder extends TrainBuilder {
 			throws XMLStreamException, TechnicalException,
 			NumberFormatException, LogicalException {
 		PassengerCar car = new PassengerCar();
-		car.setId(Integer.valueOf(reader.getAttributeValue(null, ID)
-				.substring(1)));
+		car.setId(Integer.valueOf(reader.getAttributeValue(null, ID).substring(
+				1)));
 		String name;
 		while (reader.hasNext()) {
 			int type = reader.next();
@@ -151,8 +152,8 @@ public class StAXTrainBuilder extends TrainBuilder {
 			throws XMLStreamException, TechnicalException,
 			NumberFormatException, LogicalException {
 		GoodsWagon car = new GoodsWagon();
-		car.setId(Integer.valueOf(reader.getAttributeValue(null, ID)
-				.substring(1)));
+		car.setId(Integer.valueOf(reader.getAttributeValue(null, ID).substring(
+				1)));
 		String name;
 		while (reader.hasNext()) {
 			int type = reader.next();

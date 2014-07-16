@@ -22,6 +22,8 @@ public abstract class TrainBuilder implements AbstractBuilder<Train> {
 	public static final String ENGINE_TYPE = "engine-type";
 	private String path;
 
+	private static String realPath;
+
 	public boolean isValid(String path) {
 		return true; // TODO write validation code
 	}
@@ -31,6 +33,10 @@ public abstract class TrainBuilder implements AbstractBuilder<Train> {
 	}
 
 	public void setPath(String path) {
-		this.path = path;
+		this.path = realPath + path;
+	}
+
+	public static void init(String contextPath) {
+		realPath = contextPath;
 	}
 }
