@@ -35,6 +35,7 @@ public class ShowCommand implements ActionCommand {
 					RESOURCE_TRAIN));
 			Train train = builder.createInstance();
 			request.setAttribute("train", train);
+			LOG.info("Train successfully parced");
 			return ConfigurationManager.getProperty(PAGE_MAIN);
 		} catch (TechnicalException | LogicalException e) {
 			LOG.warn("Can't parse XML file");
