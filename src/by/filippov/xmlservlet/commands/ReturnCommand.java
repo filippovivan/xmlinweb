@@ -8,7 +8,7 @@ public class ReturnCommand implements ActionCommand {
 
 	@Override
 	public String execute(HttpServletRequest request) {
-		String command = ConfigurationManager.getProperty("path.page.choise");
+		String command = ConfigurationManager.getProperty("path.page.choice");
 		return command;
 	}
 
