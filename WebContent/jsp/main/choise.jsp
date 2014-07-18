@@ -11,9 +11,11 @@
 		<input type="hidden" name="command" value="show" /> <input
 			type="radio" name="parcer" value="DOM" /> DOM <br /> <input
 			type="radio" name="parcer" value="SAX" /> SAX <br /> <input
-			type="radio" name="parcer" value="STAX" /> STAX <br />
-		${errorLoginPassMessage} <br /> <input type="submit" value="Parce" />
+			type="radio" name="parcer" value="STAX" /> STAX <br /> <br /> <input
+			type="submit" value="Parce" />
 	</form>
+	${notChosen}
+	<br>
 	<hr>
 </body>
 </html>

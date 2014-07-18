@@ -1,8 +1,5 @@
-package by.filippov.xmlservlet.servlet;
+package by.filippov.xmlservlet.commands;
 
-import by.filippov.xmlservlet.commands.ActionCommand;
-import by.filippov.xmlservlet.commands.ReturnCommand;
-import by.filippov.xmlservlet.commands.ShowCommand;
 
 public enum CommandEnum {
 	SHOW {
@@ -10,7 +7,7 @@ public enum CommandEnum {
 			this.command = new ShowCommand();
 		}
 	},
-	RETURN_TO_CHOSE {
+	RETURN {
 		{
 			this.command = new ReturnCommand();
 		}

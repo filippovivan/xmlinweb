@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import by.bsu.traintask.parcing.TrainBuilder;
 import by.filippov.xmlservlet.commands.ActionCommand;
 
 /**
@@ -22,12 +21,6 @@ public class Controller extends HttpServlet {
 	public Controller() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void init() throws ServletException {
-		TrainBuilder.init(getServletContext().getRealPath("resources"));
-		super.init();
 	}
 
 	protected void doGet(HttpServletRequest request,
